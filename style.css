@@ -22,11 +22,11 @@
     display: flex;
     justify-content: center;
 
-    width: 100px;
     height: 30px;
 
     letter-spacing: 1px;
     color: rgb(4, 50, 4);
+    font-family: monospace;
 }
 
 .boss {
