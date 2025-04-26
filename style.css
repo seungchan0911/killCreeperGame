@@ -9,6 +9,8 @@
 }
 
 .container {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,4 +60,11 @@
 
     background-color: rgba(255, 0, 0, 0.8);
     transition: .3s ease;
+}
+
+.probability {
+    position: absolute;
+    bottom: 120px;
+
+    color: rgba(0, 0, 0, 0.25);
 }

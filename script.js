@@ -2,8 +2,10 @@ const container = document.querySelector('.container')
 const boss = document.querySelector('.boss')
 const gageBar = document.querySelector('.gage-bar')
 const level = document.querySelector('.level')
+const probability = document.querySelector('.probability')
 let currentIndex = 0
 let levelIndex = 0
+let probabilityIndex = 100
 let click = true
 let tenEffect = true
 let fiftyEffect = true
@@ -20,7 +22,10 @@ boss.addEventListener('click', () => {
     if (Hp < 1) {
         boss.style.opacity = .5
         levelIndex++
+        probabilityIndex--
         level.textContent = `${levelIndex}번 뒤짐`
+        if (probabilityIndex >= 100) return
+        probability.textContent = `터질 확률 ${100 - probabilityIndex}%`
         currentIndex = 0
         click = false
 
@@ -30,7 +35,7 @@ boss.addEventListener('click', () => {
             click = true
         }, 500);
 
-        let random = Math.floor(Math.random() * 21)
+        let random = Math.floor(Math.random() * probabilityIndex)
         console.log(random)
         if (random === 0) {
             alert("펑!")
