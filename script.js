@@ -26,6 +26,16 @@ boss.addEventListener('click', () => {
             click = true
         }, 300);
     }
+
+    if (levelIndex === 10) {
+        alert("오 열번 추카추카")
+    }
+    if (levelIndex === 50) {
+        alert("50번 ㅁㅊ다...")
+    }
+    if (levelIndex === 100) {
+        boss.style.filter = "grayscale(100%)"
+    }
 })
 
 //viewportHeight
