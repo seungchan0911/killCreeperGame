@@ -4,6 +4,8 @@ const level = document.querySelector('.level')
 let currentIndex = 0
 let levelIndex = 0
 let click = true
+let tenEffect = true
+let fiftyEffect = true
 level.textContent = `크리퍼 조지기!`
 
 boss.addEventListener('click', () => {
@@ -27,11 +29,15 @@ boss.addEventListener('click', () => {
         }, 300);
     }
 
-    if (levelIndex === 10) {
+    if (levelIndex === 10 && tenEffect === true) {
         alert("오 열번 추카추카")
+
+        tenEffect = false
     }
-    if (levelIndex === 50) {
+    if (levelIndex === 50 && fiftyEffect === true) {
         alert("50번 ㅁㅊ다...")
+        
+        fiftyEffect = false
     }
     if (levelIndex === 100) {
         boss.style.filter = "grayscale(100%)"
