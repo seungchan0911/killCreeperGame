@@ -1,3 +1,4 @@
+const container = document.querySelector('.container')
 const boss = document.querySelector('.boss')
 const gageBar = document.querySelector('.gage-bar')
 const level = document.querySelector('.level')
@@ -7,26 +8,34 @@ let click = true
 let tenEffect = true
 let fiftyEffect = true
 level.textContent = `크리퍼 조지기!`
+alert("게임설명 해드릴게여\n크리퍼를 죽일 때마다 랜덤으로 터져여\n100번 조져봐여!")
 
 boss.addEventListener('click', () => {
     if (!click) return;
-
+    
+    currentIndex++
     let Hp = 100 - (10 * currentIndex)
     gageBar.style.width = Hp + "%"
-    currentIndex++
     
     if (Hp < 1) {
         boss.style.opacity = .5
         levelIndex++
         level.textContent = `${levelIndex}번 뒤짐`
         currentIndex = 0
-        click = false 
+        click = false
 
         setTimeout(() => {
             gageBar.style.width = "100%"
             boss.style.opacity = 1
             click = true
-        }, 300);
+        }, 500);
+
+        let random = Math.floor(Math.random() * 21)
+        console.log(random)
+        if (random === 0) {
+            alert("펑!")
+            container.style.display = "none"
+        }
     }
 
     if (levelIndex === 10 && tenEffect === true) {
@@ -43,12 +52,3 @@ boss.addEventListener('click', () => {
         boss.style.filter = "grayscale(100%)"
     }
 })
-
-//viewportHeight
-
-let vh = 0
-
-useEffect(() => {
-    vh = window.innerHeight * 0.01
-    document.documentElement.style.setProperty('--vh', `${vh}px`)
-}, []);
